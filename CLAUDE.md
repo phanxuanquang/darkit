@@ -7,7 +7,8 @@ MV3 dark-mode extension for Chrome + Edge. User-facing behavior lives in [README
 - `npm test` - unit + e2e (Playwright Chromium loads `src/` as unpacked extension). Run after every code change.
 - `CHROME=<chromium exe> npm test` - when Playwright's bundled browser isn't installed (`npx playwright install chromium`).
 - `npm run icons` - regenerate `src/icons/*.png` from `assets/moon.svg` (commit the PNGs).
-- `npx prettier --write .` - format all; a PostToolUse hook already formats each file Claude edits.
+- `npm run zip` - `dist/darkit-<manifest version>.zip` for store upload.
+- `npx prettier --write .` - format all; a PostToolUse hook already formats each file Claude edits. CI fails on `prettier --check`.
 
 ## Rules
 
@@ -17,6 +18,9 @@ MV3 dark-mode extension for Chrome + Edge. User-facing behavior lives in [README
 - One switch: dark mode = `data-darkit` attribute on `<html>` (filter) or one site-native switch from `NATIVE`. Never add another on/off path.
 - Content scripts never touch `chrome.storage`; go through background messages (`state`, `choose`). Background derives hostname from `sender.url`.
 - New framework support = one line in `NATIVE` (`src/detect.js`); tests auto-generate. Use the `add-framework` skill.
+
+- Release: bump `src/manifest.json` version, commit `chore(release): vX.Y.Z`, tag `vX.Y.Z` (must equal manifest; release workflow enforces). Never push unless asked.
+- Conventional Commits (`feat:`, `fix:`, `test:`, `docs:`, `chore:`, `ci:`, `build:`, `style:`), one logical change per commit.
 
 ## Gotchas
 

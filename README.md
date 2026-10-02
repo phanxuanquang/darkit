@@ -70,11 +70,23 @@ src/
   dark.css        filter theme
   icons/          generated from assets/moon.svg by `npm run icons`
 assets/           source artwork
-scripts/          icon generator
+scripts/          icon generator, zip packager
+.github/          CI and release workflows
 test/             unit + end-to-end tests
 ```
 
 Plain JavaScript, no build step. All code, comments and UI text are in English.
+
+### Releasing
+
+`src/manifest.json` `version` is the single version number.
+
+1. Bump `version` in `src/manifest.json` and commit: `git commit -am "chore(release): v0.2.0"`.
+2. Tag and push: `git tag -a v0.2.0 -m v0.2.0 && git push --follow-tags`.
+3. The Release workflow checks the tag matches the manifest, runs the tests, and attaches `darkit-<version>.zip` to a GitHub Release.
+4. Upload that zip to the Chrome Web Store Developer Dashboard and Edge Partner Center.
+
+`npm run zip` builds the same archive locally into `dist/`. CI runs `prettier --check`, the tests and the zip build on every push to `main` and on pull requests.
 
 ### Supporting another framework
 
