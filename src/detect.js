@@ -33,8 +33,11 @@ const val = (name, value, body = false) => ({
 // Popular first, <body> after <html>, generic `style` last.
 const NATIVE = [
   cls('dark'), // Tailwind darkMode 'class', shadcn, next-themes, VitePress, Nuxt UI, Radix, Chakra v3
-  val('data-theme', 'dark'), // Docusaurus, DaisyUI, Starlight, Pico, Bulma 1.0, Chakra v2
+  val('data-theme', 'dark'), // Docusaurus, DaisyUI, Starlight, Pico, Bulma 1.0, Chakra v2, Hugo PaperMod, Fluent 2 site
   val('data-bs-theme', 'dark'), // Bootstrap 5.3+
+  val('data-mui-color-scheme', 'dark'), // MUI with CSS variables, Joy UI
+  cls('skin-theme-clientpref-night'), // MediaWiki (Wikipedia)
+  val('data-coreui-theme', 'dark'), // CoreUI
   val('data-color-mode', 'dark'), // GitHub Primer
   val('data-mantine-color-scheme', 'dark'), // Mantine
   cls('dark-mode'), // @nuxtjs/color-mode default
