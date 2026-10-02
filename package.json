@@ -4,8 +4,7 @@
   "scripts": {
     "test": "node --test",
     "icons": "node scripts/icons.mjs",
-    "zip": "node scripts/zip.mjs",
-    "screenshots": "node scripts/screenshots.mjs"
+    "zip": "node scripts/zip.mjs"
   },
   "devDependencies": {
     "playwright": "^1.63.0",
