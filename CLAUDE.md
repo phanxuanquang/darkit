@@ -7,6 +7,7 @@ MV3 dark-mode extension for Chrome + Edge. User-facing behavior lives in [README
 - `npm test` - unit + e2e (Playwright Chromium loads `src/` as unpacked extension). Run after every code change.
 - `CHROME=<chromium exe> npm test` - when Playwright's bundled browser isn't installed (`npx playwright install chromium`).
 - `npm run icons` - regenerate `src/icons/*.png` from `src/icons/icon.svg` (commit the PNGs).
+- `npm run screenshots` - store screenshots from live sites into `store/screenshots/`; listing text in `store/listing.md`.
 - `npm run zip` - `dist/darkit-<manifest version>.zip` for store upload.
 - `npx prettier --write .` - format all; a PostToolUse hook already formats each file Claude edits. CI fails on `prettier --check`.
 
