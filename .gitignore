@@ -1,3 +1,4 @@
 node_modules/
 .remember/
 CLAUDE.local.md
+dist/

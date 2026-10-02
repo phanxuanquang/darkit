@@ -3,7 +3,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "icons": "node scripts/icons.mjs"
+    "icons": "node scripts/icons.mjs",
+    "zip": "node scripts/zip.mjs"
   },
   "devDependencies": {
     "playwright": "^1.63.0",
