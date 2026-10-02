@@ -68,6 +68,9 @@ src/
   detect.js       color detection, native dark switches, prompt toast
   on.js           applies dark mode at document_start on remembered sites
   dark.css        filter theme
+  icons/          generated from assets/moon.svg by `npm run icons`
+assets/           source artwork
+scripts/          icon generator
 test/             unit + end-to-end tests
 ```
 
