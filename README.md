@@ -3,7 +3,7 @@
 Dark mode for every website, in Chrome and Edge. It uses the site's own dark theme when there is one, and a light-weight filter when there isn't.
 
 - **Asks once.** On a light page, a small toast offers dark mode. Tick _Remember for this site_ and it is applied automatically from then on, with no white flash.
-- **Uses the real dark theme first.** Many sites built with Tailwind, Bootstrap, Docusaurus, Mantine, MkDocs Material and others ship a dark theme behind a switch only their own toggle sets. Darkit finds and flips that switch, so you get the designer's colors instead of an inverted page.
+- **Uses the real dark theme first.** Many sites built with Tailwind, Bootstrap, MUI, Docusaurus, Mantine, MkDocs Material, MediaWiki (Wikipedia) and others ship a dark theme behind a switch only their own toggle sets. Darkit finds and flips that switch, so you get the designer's colors instead of an inverted page.
 - **Follows your OS.** Automatic dark mode only kicks in while your OS or browser theme is dark (light pages read better in bright rooms) and follows the switch live, for example at sunset.
 - **Leaves dark sites alone.** Pages that are already dark are never touched.
 - **Tuned for reading.** The fallback filter lands on about 14:1 contrast (`#1a1a1a` background, `#e6e6e6` text) instead of harsh pure black and white.
