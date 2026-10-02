@@ -11,7 +11,7 @@ Dark mode for every website, in Chrome and Edge. It uses the site's own dark the
 
 ## Install
 
-Not yet on the Chrome Web Store or Edge Add-ons. To install from source:
+Coming to Microsoft Edge Add-ons. Until then, install from source (works in Edge and Chrome):
 
 1. Clone or download this repository.
 2. Open `chrome://extensions` (Chrome) or `edge://extensions` (Edge).
@@ -84,7 +84,7 @@ Plain JavaScript, no build step. All code, comments and UI text are in English.
 1. Bump `version` in `src/manifest.json` and commit: `git commit -am "chore(release): v0.2.0"`.
 2. Tag and push: `git tag -a v0.2.0 -m v0.2.0 && git push --follow-tags`.
 3. The Release workflow checks the tag matches the manifest, runs the tests, and attaches `darkit-<version>.zip` to a GitHub Release.
-4. Upload that zip to the Chrome Web Store Developer Dashboard and Edge Partner Center, with the text in [store/listing.md](store/listing.md) and the images in `store/screenshots/` (`npm run screenshots` regenerates them from live sites).
+4. Upload that zip to Microsoft Partner Center (Edge Add-ons), filling each page from [store/listing.md](store/listing.md) with `store/logo-300.png` and `store/screenshots/` (`npm run icons` / `npm run screenshots` regenerate them).
 
 `npm run zip` builds the same archive locally into `dist/`. CI runs `prettier --check`, the tests and the zip build on every push to `main` and on pull requests.
 

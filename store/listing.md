@@ -1,20 +1,52 @@
-# Store listing
+# Edge Add-ons listing
 
-Copy-paste source for the Chrome Web Store Developer Dashboard and Microsoft Partner Center (Edge Add-ons). Upload the zip from the GitHub Release (`darkit-<version>.zip`). Screenshots: `store/screenshots/` (1280x800, regenerate with `npm run screenshots`).
+Copy-paste source for Microsoft Partner Center, in the order its pages appear. Package: `darkit-<version>.zip` from the GitHub Release (or `npm run zip`). Images: `store/logo-300.png` and `store/screenshots/` (regenerate with `npm run icons` / `npm run screenshots`).
 
-## Name
+Read-only on Partner Center, taken from `src/manifest.json`: **Extension name** (`name`) and **Short description** (`description`). To change them, edit the manifest and upload a new package.
 
-Darkit
+## Availability
 
-## Short description (max 132 characters)
+- Visibility: Public
+- Markets: all markets
 
-Dark mode for every website. Uses the site's own dark theme when it has one, a reading-friendly filter when it doesn't.
+## Properties
 
-## Category
+- Category: Accessibility
+- Website: https://github.com/phanxuanquang/darkit
+- Support contact detail: https://github.com/phanxuanquang/darkit/issues
+- Mature content: no
 
-Accessibility
+## Privacy
 
-## Detailed description
+### Single purpose description
+
+Apply a dark color scheme to web pages: the site's own dark theme when it has one, otherwise a dark filter tuned for reading.
+
+### Permission justification
+
+| Permission                   | Justification                                                                                                                                                                                                                          |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Host permission `<all_urls>` | Darkit reads each page's background colors to decide whether it is already dark, and applies dark mode on any site the user opens. Dark mode is wanted on whatever site the user visits, so it cannot be limited to a list of domains. |
+| `scripting`                  | Toggles dark mode on the current tab when the toolbar icon is clicked, and registers the early dark-mode script for sites the user chose to remember, so they load dark without a white flash.                                         |
+| `storage`                    | Stores the user's per-site choice (on or off) locally on the device.                                                                                                                                                                   |
+| `contextMenus`               | Adds the "Forget choice for this site" item to the toolbar icon's right-click menu.                                                                                                                                                    |
+
+### Are you using remote code?
+
+No, I am not using remote code.
+
+### Data usage
+
+- What user data do you plan to collect: select nothing. Darkit collects no user data and sends nothing off the device. It only stores, locally, the hostnames of sites the user chose to remember.
+- Certify all disclosure statements.
+
+### Privacy policy URL
+
+https://github.com/phanxuanquang/darkit#privacy
+
+## Store listing (English)
+
+### Description (250 to 10,000 characters)
 
 Darkit gives every website a dark mode, and prefers the one the site already has.
 
@@ -28,7 +60,7 @@ ASKS ONCE, REMEMBERS
 On a light page, a small prompt offers dark mode. Tick "Remember for this site" and it is applied on every visit, before the page is drawn: no white flash.
 
 FOLLOWS YOUR SYSTEM
-Automatic dark mode only runs while your system or browser theme is dark, and switches live, for example at sunset. Pages that are already dark are left alone.
+Automatic dark mode only runs while your Windows or Edge theme is dark, and switches live, for example at sunset. Pages that are already dark are left alone.
 
 ALWAYS ONE CLICK AWAY
 Click the toolbar icon to toggle dark mode on the current tab at any time. Right-click the icon and choose "Forget choice for this site" to be asked again.
@@ -36,41 +68,28 @@ Click the toolbar icon to toggle dark mode on the current tab at any time. Right
 LIGHT AND PRIVATE
 No tracking, no accounts, no network requests. Nothing runs in the background when idle. Open source: https://github.com/phanxuanquang/darkit
 
-## Screenshot captions
+### Extension logo
 
-1. `1-prompt.png`: Asks once on light pages, with an option to remember the site.
+`store/logo-300.png` (300 x 300).
+
+### Screenshots (1280 x 800, max 6)
+
+1. `1-prompt.png`: asks once on light pages, with an option to remember the site.
 2. `2-wikipedia-native.png`: Wikipedia switched to its own dark theme.
 3. `3-mui-native.png`: Material UI docs switched to their own dark theme.
-4. `4-filter.png`: Sites without a dark theme get a reading-friendly dark filter.
+4. `4-filter.png`: sites without a dark theme get a reading-friendly dark filter.
 
-## Privacy
+### Search terms (max 7 terms, 30 characters each, 21 words total)
 
-### Single purpose
+dark mode, dark theme, night mode, dark mode for websites, eye strain, accessibility, reading
 
-Apply a dark color scheme to web pages: the site's own dark theme when available, otherwise a dark filter.
+## Notes for certification
 
-### Permission justifications
+No account or setup needed. To test:
 
-| Permission                   | Justification                                                                                                                                                                                                      |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Host permission `<all_urls>` | Darkit must read each page's colors to decide whether it is already dark, and apply dark mode on any site the user visits. It works on whatever site the user opens, so it cannot be limited to a list of domains. |
-| `scripting`                  | Toggle dark mode on the current tab when the toolbar icon is clicked, and register the early dark-mode script for sites the user chose to remember (prevents a white flash on load).                               |
-| `storage`                    | Store the user's per-site choice (on/off) locally on the device.                                                                                                                                                   |
-| `contextMenus`               | Provide the "Forget choice for this site" item in the toolbar icon's right-click menu.                                                                                                                             |
-| Remote code                  | No. All code is packaged in the extension.                                                                                                                                                                         |
+1. Set Edge appearance to Dark (Settings > Appearance), or Windows to dark mode.
+2. Open a light page without its own dark theme, for example https://news.ycombinator.com. A prompt appears at the bottom right; click "Turn on" to apply the dark filter.
+3. Open https://en.wikipedia.org/wiki/Dark_mode and click the toolbar icon: Wikipedia switches to its own dark theme instead of the filter.
+4. Click the icon again to turn dark mode off. Right-click the icon > "Forget choice for this site" to reset the remembered choice.
 
-### Data usage
-
-- Collects no user data. Nothing is sent off the device.
-- Stored locally only: hostnames of sites the user chose to remember, with on/off.
-- Not sold, not transferred to third parties, not used for creditworthiness or lending.
-- Chrome Web Store certifications: check all three ("I do not sell or transfer user data...", "...not use or transfer for purposes unrelated to the single purpose", "...not use or transfer to determine creditworthiness").
-
-### Privacy policy URL
-
-https://github.com/phanxuanquang/darkit#privacy
-
-## Edge Add-ons notes
-
-- Same zip, same text. Partner Center asks for: short description, description, category, screenshots, privacy policy URL, and "Does this extension access personal information?": No.
-- Search terms: dark mode, dark theme, night mode, dark reader, accessibility.
+With a light system theme the prompt does not appear by design; the toolbar icon still toggles dark mode on any page.
