@@ -18,7 +18,9 @@ const browser = await chromium.launch({ executablePath: process.env.CHROME || un
 const page = await browser.newPage();
 for (const size of SIZES) {
   await page.setViewportSize({ width: size, height: size });
-  await page.setContent(`<style>*{margin:0}svg{display:block;width:${size}px;height:${size}px}</style>${svg(size === 128 ? '0 0 128 128' : '16 16 96 96')}`);
+  await page.setContent(
+    `<style>*{margin:0}svg{display:block;width:${size}px;height:${size}px}</style>${svg(size === 128 ? '0 0 128 128' : '16 16 96 96')}`,
+  );
   const path = fileURLToPath(new URL(`../src/icons/icon-${size}.png`, import.meta.url));
   await page.screenshot({ path, omitBackground: true });
 }
