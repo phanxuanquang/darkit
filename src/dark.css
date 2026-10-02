@@ -1,0 +1,22 @@
+/* Inert until <html data-darkit>. contrast(0.8): white to #1a1a1a, black to #e6e6e6 (~14:1),
+   avoids halation of pure #000/#fff. Also dims media slightly (intended). */
+html[data-darkit] {
+  filter: invert(1) hue-rotate(180deg) contrast(0.8) !important;
+}
+
+/* Opaque base for the inversion; :where() keeps zero specificity so site rules win. */
+:where(html[data-darkit]) {
+  background-color: #fff;
+}
+
+/* Re-invert media. Saturated colors come back duller (8-bit clamp between filter layers).
+   ponytail: CSS background-image and dark <img> icons not handled; add per-site CSS when it matters. */
+html[data-darkit] :is(img, video, canvas, iframe, embed, object, svg image) {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+/* While detect.js probes native switches: computed colors must be final at once. */
+html[data-darkit-probe],
+html[data-darkit-probe] * {
+  transition: none !important;
+}
